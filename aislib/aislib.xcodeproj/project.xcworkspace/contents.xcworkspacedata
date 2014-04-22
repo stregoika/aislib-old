@@ -4,4 +4,1136 @@
    <FileRef
       location = "self:aislib.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:../../../../ais/noaadata-sonia"
+      name = "noaadata-sonia">
+      <Group
+         location = "group:ais"
+         name = "ais">
+         <FileRef
+            location = "group:__init__.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais.xsl">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_1.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_1.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_1.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_10.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_10.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_10.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_11.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_11.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_11.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_12.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_12.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_12.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_14.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_14.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_14.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_15.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_15.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_15.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_17.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_17.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_17.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_18.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_18.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_18.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_19.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_19.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_19.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_1_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_2.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_2.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_2.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_20.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_20.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_20.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_21.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_21.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_21.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_21_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_22.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_22.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_22.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_23.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_23.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_23.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_24_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_2_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_3.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_3.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_3.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_3_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_4.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_4.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_4.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_4_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_5.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_5.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_5.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_5_utils.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_6.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_6.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_6.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_7.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_7.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_7.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_7_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_8.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_8.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_8.xml">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_9.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_9.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_msg_9.xml">
+         </FileRef>
+         <FileRef
+            location = "group:aisfield.py">
+         </FileRef>
+         <FileRef
+            location = "group:aisstring.py">
+         </FileRef>
+         <FileRef
+            location = "group:allaistypes.html">
+         </FileRef>
+         <FileRef
+            location = "group:allaistypes.py">
+         </FileRef>
+         <FileRef
+            location = "group:allaistypes.xml">
+         </FileRef>
+         <FileRef
+            location = "group:binary.py">
+         </FileRef>
+         <FileRef
+            location = "group:BitVector.py">
+         </FileRef>
+         <FileRef
+            location = "group:commstate.py">
+         </FileRef>
+         <FileRef
+            location = "group:exampleParser.py">
+         </FileRef>
+         <FileRef
+            location = "group:expandais.py">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_11.html">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_11.py">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_11.xml">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_11_handcoded.py">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_13.html">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_13.py">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_13.xml">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_14.html">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_14.py">
+         </FileRef>
+         <FileRef
+            location = "group:imo_001_14.xml">
+         </FileRef>
+         <FileRef
+            location = "group:Makefile">
+         </FileRef>
+         <FileRef
+            location = "group:nmea.py">
+         </FileRef>
+         <Group
+            location = "group:ris"
+            name = "ris">
+            <FileRef
+               location = "group:Makefile">
+            </FileRef>
+            <FileRef
+               location = "group:waterlevel.html">
+            </FileRef>
+            <FileRef
+               location = "group:waterlevel.xml">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:rtcm"
+            name = "rtcm">
+            <FileRef
+               location = "group:Makefile">
+            </FileRef>
+            <FileRef
+               location = "group:rtcm-20-zone.xml">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:sls"
+            name = "sls">
+            <FileRef
+               location = "group:estlocktimes.html">
+            </FileRef>
+            <FileRef
+               location = "group:estlocktimes.xml">
+            </FileRef>
+            <FileRef
+               location = "group:header.xml">
+            </FileRef>
+            <FileRef
+               location = "group:lockorder.html">
+            </FileRef>
+            <FileRef
+               location = "group:lockorder.xml">
+            </FileRef>
+            <FileRef
+               location = "group:lockschedule.html">
+            </FileRef>
+            <FileRef
+               location = "group:lockschedule.xml">
+            </FileRef>
+            <FileRef
+               location = "group:Makefile">
+            </FileRef>
+            <FileRef
+               location = "group:structures.xml">
+            </FileRef>
+            <FileRef
+               location = "group:waterflow.html">
+            </FileRef>
+            <FileRef
+               location = "group:waterflow.xml">
+            </FileRef>
+            <FileRef
+               location = "group:waterlevel.html">
+            </FileRef>
+            <FileRef
+               location = "group:waterlevel.xml">
+            </FileRef>
+            <FileRef
+               location = "group:weatherreport.html">
+            </FileRef>
+            <FileRef
+               location = "group:weatherreport.xml">
+            </FileRef>
+            <FileRef
+               location = "group:wind.html">
+            </FileRef>
+            <FileRef
+               location = "group:wind.xml">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:sqlhelp.py">
+         </FileRef>
+         <FileRef
+            location = "group:structs-inc.xml">
+         </FileRef>
+         <Group
+            location = "group:test"
+            name = "test">
+            <FileRef
+               location = "group:ais_msg_1_1.xml">
+            </FileRef>
+            <FileRef
+               location = "group:ais_msg_8_1.xml">
+            </FileRef>
+            <FileRef
+               location = "group:sls_waterlevel_3_1.xml">
+            </FileRef>
+            <FileRef
+               location = "group:sls_waterlevel_3_2.xml">
+            </FileRef>
+            <FileRef
+               location = "group:sls_wind_2_1.xml">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:test.py">
+         </FileRef>
+         <FileRef
+            location = "group:test_sls_waterlevel.py">
+         </FileRef>
+         <FileRef
+            location = "group:timed_circular_notice.html">
+         </FileRef>
+         <FileRef
+            location = "group:timed_circular_notice.py">
+         </FileRef>
+         <FileRef
+            location = "group:timed_circular_notice.xml">
+         </FileRef>
+         <FileRef
+            location = "group:translators.py">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevel.html">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevel.py">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevel.xml">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevel2.html">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevel2.py">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevel2.xml">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice.html">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice.py">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice.xml">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice1.html">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice1.py">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice1.xml">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice2.html">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice2.py">
+         </FileRef>
+         <FileRef
+            location = "group:whalenotice2.xml">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:aisutils"
+         name = "aisutils">
+         <FileRef
+            location = "group:__init__.py">
+         </FileRef>
+         <FileRef
+            location = "group:daemon.py">
+         </FileRef>
+         <FileRef
+            location = "group:database.py">
+         </FileRef>
+         <FileRef
+            location = "group:grid.py">
+         </FileRef>
+         <FileRef
+            location = "group:nmea_ait.py">
+         </FileRef>
+         <FileRef
+            location = "group:nmea_cnc.py">
+         </FileRef>
+         <FileRef
+            location = "group:normalize.py">
+         </FileRef>
+         <FileRef
+            location = "group:server.py">
+         </FileRef>
+         <FileRef
+            location = "group:uscg.py">
+         </FileRef>
+         <FileRef
+            location = "group:wkb.py">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:ChangeLog.html">
+      </FileRef>
+      <FileRef
+         location = "group:control.in">
+      </FileRef>
+      <FileRef
+         location = "group:COPYING">
+      </FileRef>
+      <Group
+         location = "group:data"
+         name = "data">
+         <FileRef
+            location = "group:gsc.dat">
+         </FileRef>
+         <FileRef
+            location = "group:mmsi_prefix.sql">
+         </FileRef>
+         <FileRef
+            location = "group:stellwagen.dat">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:django-ais"
+         name = "django-ais">
+         <Group
+            location = "group:ais_www"
+            name = "ais_www">
+            <FileRef
+               location = "group:__init__.py">
+            </FileRef>
+            <Group
+               location = "group:define_ais"
+               name = "define_ais">
+               <FileRef
+                  location = "group:__init__.py">
+               </FileRef>
+               <FileRef
+                  location = "group:dac.sql">
+               </FileRef>
+               <FileRef
+                  location = "group:models.py">
+               </FileRef>
+               <FileRef
+                  location = "group:preload.sql">
+               </FileRef>
+               <FileRef
+                  location = "group:README.txt">
+               </FileRef>
+               <FileRef
+                  location = "group:views.py">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:Makefile">
+            </FileRef>
+            <FileRef
+               location = "group:manage.py">
+            </FileRef>
+            <Group
+               location = "group:msgs"
+               name = "msgs">
+               <FileRef
+                  location = "group:__init__.py">
+               </FileRef>
+               <FileRef
+                  location = "group:models.py">
+               </FileRef>
+               <FileRef
+                  location = "group:views.py">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:settings.py">
+            </FileRef>
+            <FileRef
+               location = "group:urls.py">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:README.txt">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:doc"
+         name = "doc">
+         <FileRef
+            location = "group:ais-messages-HEADER.html">
+         </FileRef>
+         <FileRef
+            location = "group:ais.bib">
+         </FileRef>
+         <FileRef
+            location = "group:configure-ais-logging.txt">
+         </FileRef>
+         <FileRef
+            location = "group:database-setup.txt">
+         </FileRef>
+         <FileRef
+            location = "group:esr-review.txt">
+         </FileRef>
+         <FileRef
+            location = "group:main-HEADER.html">
+         </FileRef>
+         <FileRef
+            location = "group:README.txt">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:geodjango"
+         name = "geodjango">
+         <Group
+            location = "group:ais_www"
+            name = "ais_www">
+            <FileRef
+               location = "group:__init__.py">
+            </FileRef>
+            <Group
+               location = "group:ais_msgs"
+               name = "ais_msgs">
+               <FileRef
+                  location = "group:__init__.py">
+               </FileRef>
+               <FileRef
+                  location = "group:models.py">
+               </FileRef>
+               <FileRef
+                  location = "group:urls.py">
+               </FileRef>
+               <FileRef
+                  location = "group:views.py">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:define_ais"
+               name = "define_ais">
+               <FileRef
+                  location = "group:__init__.py">
+               </FileRef>
+               <FileRef
+                  location = "group:dac.sql">
+               </FileRef>
+               <FileRef
+                  location = "group:models.py">
+               </FileRef>
+               <FileRef
+                  location = "group:preload.sql">
+               </FileRef>
+               <FileRef
+                  location = "group:README.txt">
+               </FileRef>
+               <FileRef
+                  location = "group:urls.py">
+               </FileRef>
+               <FileRef
+                  location = "group:views.py">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:hello.py">
+            </FileRef>
+            <FileRef
+               location = "group:hello_template.py">
+            </FileRef>
+            <FileRef
+               location = "group:Makefile">
+            </FileRef>
+            <FileRef
+               location = "group:manage.py">
+            </FileRef>
+            <FileRef
+               location = "group:settings.py">
+            </FileRef>
+            <Group
+               location = "group:templates"
+               name = "templates">
+               <FileRef
+                  location = "group:current_datetime.html">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:urls.py">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:init.d"
+         name = "init.d">
+         <FileRef
+            location = "group:ais-forward">
+         </FileRef>
+         <FileRef
+            location = "group:logais">
+         </FileRef>
+         <FileRef
+            location = "group:logtide">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:LICENSE">
+      </FileRef>
+      <FileRef
+         location = "group:make_waterlevel_ais.py">
+      </FileRef>
+      <FileRef
+         location = "group:Makefile">
+      </FileRef>
+      <FileRef
+         location = "group:MANIFEST.in">
+      </FileRef>
+      <Group
+         location = "group:nmea"
+         name = "nmea">
+         <FileRef
+            location = "group:__init__.py">
+         </FileRef>
+         <FileRef
+            location = "group:checksum.py">
+         </FileRef>
+         <FileRef
+            location = "group:gga.py">
+         </FileRef>
+         <FileRef
+            location = "group:nmea_error.py">
+         </FileRef>
+         <FileRef
+            location = "group:rmc.py">
+         </FileRef>
+         <FileRef
+            location = "group:zda.py">
+         </FileRef>
+         <FileRef
+            location = "group:znt.py">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:noaa_waterlevel_ais.bash">
+      </FileRef>
+      <Group
+         location = "group:noaadata"
+         name = "noaadata">
+         <FileRef
+            location = "group:__init__.py">
+         </FileRef>
+         <FileRef
+            location = "group:dumpallwl.py">
+         </FileRef>
+         <FileRef
+            location = "group:stations-soap.xml">
+         </FileRef>
+         <FileRef
+            location = "group:stations.py">
+         </FileRef>
+         <FileRef
+            location = "group:tideserver.py">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevel_dap.py">
+         </FileRef>
+         <FileRef
+            location = "group:waterlevelraw.py">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:noaadata-py.info.in">
+      </FileRef>
+      <Group
+         location = "group:noaadata_py.egg-info"
+         name = "noaadata_py.egg-info">
+         <FileRef
+            location = "group:dependency_links.txt">
+         </FileRef>
+         <FileRef
+            location = "group:PKG-INFO">
+         </FileRef>
+         <FileRef
+            location = "group:SOURCES.txt">
+         </FileRef>
+         <FileRef
+            location = "group:top_level.txt">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:PKG-INFO">
+      </FileRef>
+      <FileRef
+         location = "group:README">
+      </FileRef>
+      <Group
+         location = "group:scraps"
+         name = "scraps">
+         <FileRef
+            location = "group:adjust_time.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_filter_by_mmsi.cxx">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_dailyvessels.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_import2006spreadsheet.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_monthhistogram.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_speedsummary.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_transitsummary.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_vesselsummary.py">
+         </FileRef>
+         <FileRef
+            location = "group:bbm.py">
+         </FileRef>
+         <FileRef
+            location = "group:bogus_unittest.py">
+         </FileRef>
+         <FileRef
+            location = "group:build-time-notice-test-data.sh">
+         </FileRef>
+         <FileRef
+            location = "group:buildais.py">
+         </FileRef>
+         <FileRef
+            location = "group:cptimestamp2front.py">
+         </FileRef>
+         <FileRef
+            location = "group:gsc-and-tss.dat">
+         </FileRef>
+         <FileRef
+            location = "group:gsc-and-tss.kml">
+         </FileRef>
+         <FileRef
+            location = "group:gsc-bbox.kml">
+         </FileRef>
+         <FileRef
+            location = "group:gsc.dat">
+         </FileRef>
+         <FileRef
+            location = "group:gsc.kml">
+         </FileRef>
+         <FileRef
+            location = "group:gsc.tss.dat">
+         </FileRef>
+         <FileRef
+            location = "group:gsc.tss.kml">
+         </FileRef>
+         <FileRef
+            location = "group:kml_countdown_placemark.py">
+         </FileRef>
+         <FileRef
+            location = "group:Makefile">
+         </FileRef>
+         <FileRef
+            location = "group:maru-xy.dat">
+         </FileRef>
+         <FileRef
+            location = "group:monthplots.gp">
+         </FileRef>
+         <FileRef
+            location = "group:nmea.py">
+         </FileRef>
+         <FileRef
+            location = "group:nmeamessages.py">
+         </FileRef>
+         <FileRef
+            location = "group:revelle2uscgold.py">
+         </FileRef>
+         <FileRef
+            location = "group:sbnms-buoys-ab.xys">
+         </FileRef>
+         <FileRef
+            location = "group:sbnms-buoys-ab.xyt">
+         </FileRef>
+         <FileRef
+            location = "group:sbnms.grd.cmd">
+         </FileRef>
+         <FileRef
+            location = "group:six_min_avg.m">
+         </FileRef>
+         <FileRef
+            location = "group:soapclient.pl">
+         </FileRef>
+         <FileRef
+            location = "group:stripfront.py">
+         </FileRef>
+         <FileRef
+            location = "group:tideconvert.py">
+         </FileRef>
+         <FileRef
+            location = "group:timestamp.py">
+         </FileRef>
+         <FileRef
+            location = "group:timetest.py">
+         </FileRef>
+         <FileRef
+            location = "group:whalemortality.dat">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:scripts"
+         name = "scripts">
+         <FileRef
+            location = "group:ais-db">
+         </FileRef>
+         <FileRef
+            location = "group:ais-db-rebuild-cache-tables">
+         </FileRef>
+         <FileRef
+            location = "group:ais-net-to-postgis">
+         </FileRef>
+         <FileRef
+            location = "group:ais-port-forward">
+         </FileRef>
+         <FileRef
+            location = "group:ais-process-day.bash">
+         </FileRef>
+         <FileRef
+            location = "group:ais-receive-bbox">
+         </FileRef>
+         <FileRef
+            location = "group:ais_5report.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_bin_msgs.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_build_postgis.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_build_sqlite.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_build_sqlite3.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_decimate_traffic.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_distance.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_dump_mmsi.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_dumpnames.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_filter.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_info.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_liststations.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_names.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_nmea_find_matches.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_nmea_info.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_nmea_remove_dups.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_nmea_uptime.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_nmea_uptime2.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_nmea_uscg_timeshift.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_normalize.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_oldlog2newlog.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_create_transit_table.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_grid.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_grid_transits.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_transitlines.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_pg_transitlines_noMakeLine.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_position_in_polygon.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_positions.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_sqlite_bsreport_analysis.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_towersplit.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_traffic_analysis.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_transits.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_uniq.py">
+         </FileRef>
+         <FileRef
+            location = "group:ais_uscg_splitstations.py">
+         </FileRef>
+         <FileRef
+            location = "group:aisuser_monitor.py">
+         </FileRef>
+         <FileRef
+            location = "group:aisxml2wxpy.py">
+         </FileRef>
+         <FileRef
+            location = "group:aisxmlbinmsg2py.py">
+         </FileRef>
+         <FileRef
+            location = "group:bbox-to-kml">
+         </FileRef>
+         <FileRef
+            location = "group:daily.sh">
+         </FileRef>
+         <FileRef
+            location = "group:decimate">
+         </FileRef>
+         <FileRef
+            location = "group:dump_wl.py">
+         </FileRef>
+         <FileRef
+            location = "group:find_missing_logs.py">
+         </FileRef>
+         <FileRef
+            location = "group:jpegexif2kml.py">
+         </FileRef>
+         <FileRef
+            location = "group:log_udp.py">
+         </FileRef>
+         <FileRef
+            location = "group:logger_handlers.py">
+         </FileRef>
+         <FileRef
+            location = "group:Makefile">
+         </FileRef>
+         <FileRef
+            location = "group:nais2postgis.py">
+         </FileRef>
+         <FileRef
+            location = "group:nais_pg_realtime_reaper.py">
+         </FileRef>
+         <FileRef
+            location = "group:port_server.py">
+         </FileRef>
+         <FileRef
+            location = "group:serial-logger">
+         </FileRef>
+         <FileRef
+            location = "group:serial-logger2.py">
+         </FileRef>
+         <FileRef
+            location = "group:serial_send.py">
+         </FileRef>
+         <FileRef
+            location = "group:serial_send2.py">
+         </FileRef>
+         <FileRef
+            location = "group:socket_logger.py">
+         </FileRef>
+         <FileRef
+            location = "group:socket_send.py">
+         </FileRef>
+         <FileRef
+            location = "group:stellwagen-crossings.bash">
+         </FileRef>
+         <FileRef
+            location = "group:stellwagen-shipreport.bash">
+         </FileRef>
+         <FileRef
+            location = "group:test_ais_server.py">
+         </FileRef>
+         <FileRef
+            location = "group:tide4_process_logs.py">
+         </FileRef>
+         <FileRef
+            location = "group:xy2kml">
+         </FileRef>
+         <FileRef
+            location = "group:xy2kmlline">
+         </FileRef>
+         <FileRef
+            location = "group:xy_pos_filter">
+         </FileRef>
+         <FileRef
+            location = "group:xymt2kml">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:setup.cfg">
+      </FileRef>
+      <FileRef
+         location = "group:setup.py">
+      </FileRef>
+      <Group
+         location = "group:test"
+         name = "test">
+         <FileRef
+            location = "group:grid_tests.py">
+         </FileRef>
+         <FileRef
+            location = "group:Makefile">
+         </FileRef>
+         <FileRef
+            location = "group:test.ais">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:TODO">
+      </FileRef>
+      <FileRef
+         location = "group:VERSION">
+      </FileRef>
+   </Group>
 </Workspace>
