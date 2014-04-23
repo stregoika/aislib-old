@@ -112,64 +112,69 @@ def rebuild_b_track_line(cu,userid,name,start_time=None,point_limit=50):
 #                                                                              #
 ################################################################################
 def handle_insert_update(cx, uscg_msg, msg_dict, aismsg):
-    db_uncommitted_count = 0 # how many commits were done... return this
+   
+   print 'nais2postgis::handle_insert_update - Init'
+   
+   db_uncommitted_count = 0 # how many commits were done... return this
 
-    msg_type = msg_dict['MessageID']
+   msg_type = msg_dict['MessageID']
 
-    userid = int(msg_dict['UserID'])
+   userid = int(msg_dict['UserID'])
 
-    cu = cx.cursor()
+   cu = cx.cursor()
 
-    if msg_type in (1,2,3):
-        x = msg_dict['longitude']
-        y = msg_dict['latitude']
+   if msg_type in (1,2,3):
+      x = msg_dict['longitude']
+      y = msg_dict['latitude']
 
-        #print 'FIX:',x,y
+      #print 'FIX:',x,y
 
-        if x > 180 or y > 90:
-            return # 181, 91 is the invalid gps value
+      # Posiciones incorrectas de GPS
+      if x > 180 or y > 90:
+         print 'nais2postgis::handle_insert_update - Posiciones incorrectas GPS x: %s y: %s', x, y
+         return # 181, 91 is the invalid gps value
 
-        if options.lon_min is not None and options.lon_min > x: return
-        if options.lon_max is not None and options.lon_max < x: return
-        if options.lat_min is not None and options.lat_min > y: return
-        if options.lat_max is not None and options.lat_max < y: return
+      if options.lon_min is not None and options.lon_min > x: return
+      if options.lon_max is not None and options.lon_max < x: return
+      if options.lat_min is not None and options.lat_min > y: return
+      if options.lat_max is not None and options.lat_max < y: return
 
-        ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
-        ins.add('cg_sec',       uscg_msg.cg_sec)
-        ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
-        ins.add('cg_r',         uscg_msg.station)
+      ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
+      ins.add('cg_sec',       uscg_msg.cg_sec)
+      ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
+      ins.add('cg_r',         uscg_msg.station)
 
-        try:
-            cu.execute(str(ins))
-            #print 'Added pos'
-        except Exception,e:
-            errors_file.write('pos SQL INSERT ERROR for line: %s\t\n',str(msg_dict))
-            errors_file.write(str(ins))
-            errors_file.write('\n')
-            errors_file.flush()
-            traceback.print_exc(file=errors_file)
-            traceback.print_exc()
-            sys.stderr.write('\n\nBAD DB INSERT\n\n')
-            return False
+      print 'nais2postgis::handle_insert_update - Insert: ',ins
+      try:
+         cu.execute(str(ins))
+         print 'nais2postgis::handle_insert_update - Added position'
+      except Exception,e:
+         errors_file.write('nais2postgis::handle_insert_update - pos SQL INSERT ERROR for line: %s\t\n',str(msg_dict))
+         errors_file.write(str(ins))
+         errors_file.write('\n')
+         errors_file.flush()
+         traceback.print_exc(file=errors_file)
+         traceback.print_exc()
+         sys.stderr.write('\n\nBAD DB INSERT\n\n')
+         return False
 
+      db_uncommitted_count += 1
 
-        db_uncommitted_count += 1
+      navigationstatus = msg_dict['NavigationStatus']
+      shipandcargo = 'unknown'
+      cg_r = uscg_msg.station
 
-        navigationstatus = msg_dict['NavigationStatus']
-        shipandcargo = 'unknown'
-        cg_r = uscg_msg.station
-
-        if str(navigationstatus) in NavigationStatusDecodeLut:
+      if str(navigationstatus) in NavigationStatusDecodeLut:
             navigationstatus = NavigationStatusDecodeLut[str(navigationstatus)]
 
-        # get key of the old value
-        cu.execute('SELECT key FROM last_position WHERE userid=%s;', (userid,))
-        row = cu.fetchall()
-        if len(row)>0:
+      # get key of the old value
+      cu.execute('SELECT key FROM last_position WHERE userid=%s;', (userid,))
+      row = cu.fetchall()
+      if len(row)>0:
             cu.execute('DELETE FROM last_position WHERE userid = %s;', (userid,))
-        cu.execute('SELECT name,shipandcargo FROM shipdata WHERE userid=%s LIMIT 1;',(userid,))
-        row = cu.fetchall()
-        if len(row)>0:
+      cu.execute('SELECT name,shipandcargo FROM shipdata WHERE userid=%s LIMIT 1;',(userid,))
+      row = cu.fetchall()
+      if len(row)>0:
             name = row[0][0].rstrip(' @')
             shipandcargo = int(row[0][1])
             if str(shipandcargo) in shipandcargoDecodeLut:
@@ -179,45 +184,45 @@ def handle_insert_update(cx, uscg_msg, msg_dict, aismsg):
             else:
                 shipandcargo = str(shipandcargo)
 
-        else:
+      else:
             name = str(userid)
 
-        q = 'INSERT INTO last_position (userid,name,cog,sog,position,cg_r,navigationstatus, shipandcargo) VALUES (%s,%s,%s,%s,GeomFromText(\'POINT('+str(msg_dict['longitude'])+' '+str(msg_dict['latitude']) +')\',4326),%s,%s,%s);'
+      q = 'INSERT INTO last_position (userid,name,cog,sog,position,cg_r,navigationstatus, shipandcargo) VALUES (%s,%s,%s,%s,GeomFromText(\'POINT('+str(msg_dict['longitude'])+' '+str(msg_dict['latitude']) +')\',4326),%s,%s,%s);'
 
-        if msg_dict['COG'] == 511:
+      if msg_dict['COG'] == 511:
             msg_dict['COG'] = 0 # make unknowns point north
                    
-        cu.execute(q,(userid,name,msg_dict['COG'],msg_dict['SOG'],cg_r,navigationstatus,shipandcargo))
+      cu.execute(q,(userid,name,msg_dict['COG'],msg_dict['SOG'],cg_r,navigationstatus,shipandcargo))
 
-        # drop the old value
-        rebuild_track_line(cu,userid,name)  # This will leave out the current point
+      # drop the old value
+      rebuild_track_line(cu,userid,name)  # This will leave out the current point
 
-        return True # need to commit db
+      return True # need to commit db
 
-    if msg_type == 4:
-        cu.execute('DELETE FROM bsreport WHERE userid = %s;',(userid,))
-        db_uncommitted_count += 1
+   if msg_type == 4:
+      cu.execute('DELETE FROM bsreport WHERE userid = %s;',(userid,))
+      db_uncommitted_count += 1
 
-        ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
-        ins.add('cg_sec',       uscg_msg.cg_sec)
-        ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
-        ins.add('cg_r',         uscg_msg.station)
+      ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
+      ins.add('cg_sec',       uscg_msg.cg_sec)
+      ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
+      ins.add('cg_r',         uscg_msg.station)
 
-        cu.execute(str(ins))
+      cu.execute(str(ins))
 
-        return True # need to commit db
+      return True # need to commit db
 
-    if msg_type == 5:
-        cu.execute('DELETE FROM shipdata WHERE userid = %s;',(userid,))
+   if msg_type == 5:
+      cu.execute('DELETE FROM shipdata WHERE userid = %s;',(userid,))
 
-        ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
-        ins.add('cg_sec',       uscg_msg.cg_sec)
-        ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
-        ins.add('cg_r',         uscg_msg.station)
+      ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
+      ins.add('cg_sec',       uscg_msg.cg_sec)
+      ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
+      ins.add('cg_r',         uscg_msg.station)
 
-        try:
+      try:
             cu.execute(str(ins))
-        except Exception,e:
+      except Exception,e:
             #errors_file = file('errors-nais2postgis','w+')
             errors_file.write('SQL INSERT ERROR for line: %s\t\n',str(msg_dict))
             errors_file.write(str(ins))
@@ -228,50 +233,50 @@ def handle_insert_update(cx, uscg_msg, msg_dict, aismsg):
             sys.stderr.write('\n\nBAD DB INSERT\n\n')
             return False
 
-        return True # need to commit db
+      return True # need to commit db
 
-    if msg_type == 18:
+   if msg_type == 18:
 
-        x = msg_dict['longitude']
-        y = msg_dict['latitude']
+      x = msg_dict['longitude']
+      y = msg_dict['latitude']
 
-        if x > 180 or y > 90:
+      if x > 180 or y > 90:
             return # 181, 91 is the invalid gps value
-        #print 'trying class b',x,y
+      #print 'trying class b',x,y
 
-        if options.lon_min is not None and options.lon_min > x: return
-        if options.lon_max is not None and options.lon_max < x: return
-        if options.lat_min is not None and options.lat_min > y: return
-        if options.lat_max is not None and options.lat_max < y: return
+      if options.lon_min is not None and options.lon_min > x: return
+      if options.lon_max is not None and options.lon_max < x: return
+      if options.lat_min is not None and options.lat_min > y: return
+      if options.lat_max is not None and options.lat_max < y: return
 
-        #print 'inserting class b'
+      #print 'inserting class b'
 
-        ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
-        ins.add('cg_sec',       uscg_msg.cg_sec)
-        ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
-        ins.add('cg_r',         uscg_msg.station)
+      ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
+      ins.add('cg_sec',       uscg_msg.cg_sec)
+      ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
+      ins.add('cg_r',         uscg_msg.station)
 
-        cu.execute(str(ins))
+      cu.execute(str(ins))
 
-        #navigationstatus = msg_dict['NavigationStatus']
-        shipandcargo = 'unknown'
-        cg_r = uscg_msg.station
+      #navigationstatus = msg_dict['NavigationStatus']
+      shipandcargo = 'unknown'
+      cg_r = uscg_msg.station
 
-        cu.execute('SELECT key FROM last_position WHERE userid=%s;', (userid,))
-        row = cu.fetchall()
-        if len(row)>0:
+      cu.execute('SELECT key FROM last_position WHERE userid=%s;', (userid,))
+      row = cu.fetchall()
+      if len(row)>0:
             cu.execute('DELETE FROM last_position WHERE userid = %s;', (userid,))
 
-        cu.execute('SELECT name FROM b_staticdata WHERE partnum=0 AND userid=%s LIMIT 1;',(userid,))
-        row = cu.fetchall()
-        if len(row)>0:
+      cu.execute('SELECT name FROM b_staticdata WHERE partnum=0 AND userid=%s LIMIT 1;',(userid,))
+      row = cu.fetchall()
+      if len(row)>0:
             name = row[0][0].rstrip(' @')
-        else:
+      else:
             name = str(userid)
 
-        cu.execute('SELECT shipandcargo FROM b_staticdata WHERE partnum=1 AND userid=%s LIMIT 1;',(userid,))
-        row = cu.fetchall()
-        if len(row)>0:
+      cu.execute('SELECT shipandcargo FROM b_staticdata WHERE partnum=1 AND userid=%s LIMIT 1;',(userid,))
+      row = cu.fetchall()
+      if len(row)>0:
             shipandcargo = int(row[0][0])
             if str(shipandcargo) in shipandcargoDecodeLut:
                 shipandcargo = shipandcargoDecodeLut[str(shipandcargo)]
@@ -280,46 +285,46 @@ def handle_insert_update(cx, uscg_msg, msg_dict, aismsg):
             else:
                 shipandcargo = str(shipandcargo)
 
-        # FIX: add navigation status
-        q = 'INSERT INTO last_position (userid,name,cog,sog,position,cg_r,shipandcargo) VALUES (%s,%s,%s,%s,GeomFromText(\'POINT('+str(msg_dict['longitude'])+' '+str(msg_dict['latitude']) +')\',4326),%s,%s);'
+      # FIX: add navigation status
+      q = 'INSERT INTO last_position (userid,name,cog,sog,position,cg_r,shipandcargo) VALUES (%s,%s,%s,%s,GeomFromText(\'POINT('+str(msg_dict['longitude'])+' '+str(msg_dict['latitude']) +')\',4326),%s,%s);'
                    
-        if msg_dict['COG'] == 511:
+      if msg_dict['COG'] == 511:
             msg_dict['COG'] = 0 # make unknowns point north
 
-        cu.execute(q,(userid,name,msg_dict['COG'],msg_dict['SOG'],cg_r,shipandcargo) )
+      cu.execute(q,(userid,name,msg_dict['COG'],msg_dict['SOG'],cg_r,shipandcargo) )
 
-        rebuild_b_track_line(cu,userid,name)
+      rebuild_b_track_line(cu,userid,name)
 
-        return True # need to commit db
+      return True # need to commit db
 
 
-    if msg_type == 19: # Class B extended report
-        cu.execute ('DELETE FROM b_pos_and_shipdata WHERE userid=%s AND partnum=%s;', (userid,msg_dict['partnum']))
+   if msg_type == 19: # Class B extended report
+      cu.execute ('DELETE FROM b_pos_and_shipdata WHERE userid=%s AND partnum=%s;', (userid,msg_dict['partnum']))
 
-        ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
-        ins.add('cg_sec',       uscg_msg.cg_sec)
-        ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
-        ins.add('cg_r',         uscg_msg.station)
-        print 'msg 19:',str(ins)                                                                                            
+      ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
+      ins.add('cg_sec',       uscg_msg.cg_sec)
+      ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
+      ins.add('cg_r',         uscg_msg.station)
+      print 'msg 19:',str(ins)
 
-        cu.execute(str(ins))
+      cu.execute(str(ins))
 
-        return True # need to commit db
+      return True # need to commit db
 
-    if msg_type == 24: # Class B static data report.  Either part A (0) or B (0)
-        # remove the old value, but only do it by parts
-        cu.execute ('DELETE FROM b_staticdata WHERE userid=%s AND partnum=%s;', (userid,msg_dict['partnum']))
+   if msg_type == 24: # Class B static data report.  Either part A (0) or B (0)
+      # remove the old value, but only do it by parts
+      cu.execute ('DELETE FROM b_staticdata WHERE userid=%s AND partnum=%s;', (userid,msg_dict['partnum']))
 
-        ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
-        ins.add('cg_sec',       uscg_msg.cg_sec)
-        ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
-        ins.add('cg_r',         uscg_msg.station)
+      ins = aismsg.sqlInsert(msg_dict, dbType='postgres')
+      ins.add('cg_sec',       uscg_msg.cg_sec)
+      ins.add('cg_timestamp', uscg_msg.sqlTimestampStr)
+      ins.add('cg_r',         uscg_msg.station)
 
-        cu.execute(str(ins))
+      cu.execute(str(ins))
 
-        return True
+      return True
 
-    return False # No db commit needed
+   return False # No db commit needed
 
 ################################################################################
 #                                                                              #
