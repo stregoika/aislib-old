@@ -57,12 +57,13 @@ dbTypes=(
 #                                                                              #
 ################################################################################
 def stdCmdlineOptions(parser,dbType='postgres',verbose=False):
-    '''
-    Standard command line options
-    @param parser: OptionParser parser that will get the additional options
-    @param dbType: 'postgres' or 'sqlite'
-    '''
-   dbType='postgres';
+   '''
+   Standard command line options
+   @param parser: OptionParser parser that will get the additional options
+   @param dbType: 'postgres' or 'sqlite'
+   '''
+   dbType = 'postgres'
+
    if dbType != 'all' and dbType not in dbTypes:
       sys.exit('database.py::stdCmdlineOptions - Unknown dbType: '+dbType)
 
@@ -70,26 +71,26 @@ def stdCmdlineOptions(parser,dbType='postgres',verbose=False):
       
       if verbose: sys.stderr.write('database.py::stdCmdlineOptions - Adding postgres options\n')
 
-         parser.add_option('-d','--database-name',dest='databaseName',default='ais'
+      parser.add_option('-d','--database-name',dest='databaseName',default='ais'
                           ,help='Name of database within the postgres server [default: %default]')
 
-         parser.add_option('-D','--database-host',dest='databaseHost',default='localhost'
+      parser.add_option('-D','--database-host',dest='databaseHost',default='localhost'
                           ,help='Host name of the computer serving the dbx [default: %default]')
             
-         defaultUser = os.getlogin()
-         parser.add_option('-u','--database-user',dest='databaseUser',default=defaultUser
+      defaultUser = os.getlogin()
+      parser.add_option('-u','--database-user',dest='databaseUser',default=defaultUser
                           ,help='Host name of the to access the database with [default: %default]')
 
-         parser.add_option('-p','--database-passwd',dest='databasePasswd',default=None
+      parser.add_option('-p','--database-passwd',dest='databasePasswd',default=None
                           ,help='Password to access the database with [default: None]')
 
-         parser.add_option('-O','--database-port',dest='databasePort',default=5432
+      parser.add_option('-O','--database-port',dest='databasePort',default=5432
                   ,help='Port to access the database with [default: None]')
    
    if dbType in ('all','sqlite'):
 
       if verbose: sys.stderr.write('Adding sqlite options\n')
-         parser.add_option('-f','--database-file',dest='databaseFilename',default='ais.db3'
+      parser.add_option('-f','--database-file',dest='databaseFilename',default='ais.db3'
 			                  ,help='Name of the sqlite3 database file to write [default: %default]')
 
       payload_table_sql = '''
@@ -107,16 +108,16 @@ def stdCmdlineOptions(parser,dbType='postgres',verbose=False):
 #                                                                              #
 ################################################################################
 def createTables(cx,dbType='sqlite',includeList=None, excludeList=None,verbose=False):
-    '''
-    @param cx: database connection
-    @type cx: db API 2.0 object
-    @param dbType: postgres or sqlite
-    @type dbType: str
-    @param includeList: If a list of message numbers is passed, only these are created
-    @type includeList: list of integers
-    @param excludeList: If a list of message numbers is passed, all but these are created
-    @type excludeList: list of integers
-    '''
+   '''
+   @param cx: database connection
+   @type cx: db API 2.0 object
+   @param dbType: postgres or sqlite
+   @type dbType: str
+   @param includeList: If a list of message numbers is passed, only these are created
+   @type includeList: list of integers
+   @param excludeList: If a list of message numbers is passed, all but these are created
+   @type excludeList: list of integers
+   '''
    cu = cx.cursor()
 
    tables=[]
@@ -140,18 +141,18 @@ def createTables(cx,dbType='sqlite',includeList=None, excludeList=None,verbose=F
 #                                                                              #
 ################################################################################
 def dropTables(cx,includeList=None, excludeList=None,verbose=False):
-    '''
-    Kiss your data goodbye
-
-    @param cx: database connection
-    @type cx: db API 2.0 object
-    @param dbType: postgres or sqlite
-    @type dbType: str
-    @param includeList: If a list of message numbers is passed, only these are created
-    @type includeList: list of integers
-    @param excludeList: If a list of message numbers is passed, all but these are created
-    @type excludeList: list of integers
-    '''
+   '''
+   Kiss your data goodbye
+ 
+   @param cx: database connection
+   @type cx: db API 2.0 object
+   @param dbType: postgres or sqlite
+   @type dbType: str
+   @param includeList: If a list of message numbers is passed, only these are created
+   @type includeList: list of integers
+   @param excludeList: If a list of message numbers is passed, all but these are created
+   @type excludeList: list of integers
+   '''
    cu = cx.cursor()
 
    tables=[]
@@ -191,7 +192,7 @@ def connect(options,dbType=None):
 
    elif dbType=='postgres':
       #import psycopg2 as psycopg
-      connectStr = "dbname='"+options.databaseName+"' user='"+options.databaseUser+"' password='"+options.databasePasswd+"' port='"+options.databasePort"' host='"+options.databaseHost+"'"
+      connectStr = "dbname='"+options.databaseName+"' user='"+options.databaseUser+"' password='"+options.databasePasswd+"' port='"+options.databasePort+"' host='"+options.databaseHost+"'"
 
       if options.verbose:
          print 'database.py::connect - Connect string:',connectStr
