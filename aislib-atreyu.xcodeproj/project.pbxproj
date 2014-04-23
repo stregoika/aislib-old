@@ -6,10 +6,15 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		186380B419086FEF007D50C6 /* pruebita */ = {isa = PBXFileReference; lastKnownFileType = text; path = pruebita; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		1836702F19086D4B00A5C9AA = {
 			isa = PBXGroup;
 			children = (
+				186380B419086FEF007D50C6 /* pruebita */,
 			);
 			sourceTree = "<group>";
 		};
