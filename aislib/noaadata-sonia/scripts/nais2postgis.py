@@ -327,24 +327,25 @@ def handle_insert_update(cx, uscg_msg, msg_dict, aismsg):
 #                                                                              #
 ################################################################################
 class Nais2Postgis:
-    def __init__(self,options):
-        self.v = options.verbose
-        self.options = options
-        self.timeout=options.timeout
-        self.nais_connected = False
-        self.loop_count = 0
-        self.nais_src = None
-        self.cx = aisutils.database.connect(options, dbType='postgres')
-        self.cu = self.cx.cursor()
-        self.norm_queue = aisutils.normalize.Normalize() # for multipart messages
-        self.bad = file('bad.ais','w')
+   def __init__(self,options):
+      self.v = options.verbose
+      self.options = options
+      self.timeout=options.timeout
+      self.nais_connected = False
+      self.loop_count = 0
+      self.nais_src = None
+      self.cx = aisutils.database.connect(options, dbType='postgres')
+      self.cu = self.cx.cursor()
+      self.norm_queue = aisutils.normalize.Normalize() # for multipart messages
+      self.bad = file('bad.ais','w')
 
-        # Database commit handling... only commit every so often to 
-        self.db_last_commit_time = 0
-        self.db_uncommitted_count = 0
+      # Database commit handling... only commit every so often to
+      self.db_last_commit_time = 0
+      self.db_uncommitted_count = 0
 
+   print "nais2postgis::Nais2Postgis - Init"
 
-    def do_one_loop(self):
+   def do_one_loop(self):
         '''
         @return: true on success, false if disconnected or other error.
         '''
@@ -549,35 +550,35 @@ if __name__=='__main__':
    (options,args) = parser.parse_args()
    v = options.verbose
    if v:
-       sys.stderr.write('starting logging to %s at %d\n' % 
+      sys.stderr.write('nais2postgis::main - Starting Logging to %s at %d\n' %
                         (options.log_file, options.log_level) )
 
-   sys.stderr.write('Bounding box: X: %s to %s \t\t Y: %s to %s\n' % (options.lon_min,options.lon_max,options.lat_min,options.lat_max))
+   sys.stderr.write('nais2postgis::main - Bounding box: X: %s to %s \t\t Y: %s to %s\n' % (options.lon_min,options.lon_max,options.lat_min,options.lat_max))
 
    if options.inHostname:
-	options.inHost=socket.gethostname()
+	   options.inHost=socket.gethostname()
 
    if options.daemon_mode:
-       aisutils.daemon.start(options.pid_file)
+      aisutils.daemon.start(options.pid_file)
 
-   logging.basicConfig(filename = options.log_file
-                        , level  = options.log_level
-                        )
+   logging.basicConfig(filename = options.log_file, level  = options.log_level)
 
    n2p = Nais2Postgis(options)
-   loop_count=0
-   while True:
-        loop_count += 1
-        if 0 == loop_count % 1000:
-            print 'top level loop',loop_count
-        try:
-            n2p.do_one_loop()
-        except Exception, e:
-            sys.stderr.write('*** do_one_loop exception\n')
-            sys.stderr.write('   Exception:' + str(type(Exception))+'\n')
-            sys.stderr.write('   Exception args:'+ str(e)+'\n')
-            traceback.print_exc(file=sys.stderr)
-            continue
 
-        time.sleep(0.01)
+   loop_count=0
+
+   while True:
+      loop_count += 1
+      if 0 == loop_count % 1000:
+         print 'nais2postgis::main - top level loop',loop_count
+      try:
+         n2p.do_one_loop()
+      except Exception, e:
+         sys.stderr.write('*** nais2postgis::main - do_one_loop exception\n')
+         sys.stderr.write('   Exception:' + str(type(Exception))+'\n')
+         sys.stderr.write('   Exception args:'+ str(e)+'\n')
+         traceback.print_exc(file=sys.stderr)
+         continue
+
+      time.sleep(0.01)
         
