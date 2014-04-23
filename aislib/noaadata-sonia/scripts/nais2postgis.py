@@ -483,9 +483,7 @@ class Nais2Postgis:
                 self.bad.write(msg+'\n')
                 time.sleep(.1)
                 self.cx.commit() # reset the transaction
-            
 
-######################################################################
 
 ################################################################################
 #                                                                              #
@@ -495,6 +493,7 @@ class Nais2Postgis:
 if __name__=='__main__':
    from optparse import OptionParser
 
+   print 'nais2postgis::main - Init'
    # FIX: is importing __init__ safe?
    dbType='postgres';
 
