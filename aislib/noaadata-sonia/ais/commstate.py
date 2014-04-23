@@ -17,14 +17,14 @@ Handle communication state as described in Annex 2 - 3.3.7.2.1 of ITU 1371.3
 '''
 
 sotdma_fields = (
-    'sync_state',
-    'slot_timeout',
+    'state_syncstate',
+    'state_slottimeout',
     'received_stations',
     'slot_number',
     'commstate_utc_hour',
     'commstate_utc_min',
     'commstate_utc_spare',
-    'slot_offset'
+    'state_slotoffset'
 )
 
 def sotdma_sql_fields(c):
@@ -36,8 +36,8 @@ def sotdma_sql_fields(c):
 def sotdma_parse_bits(bv):
     assert(len(bv)==19)
     r = {}
-    r['sync_state'] = int(bv[:2])
-    r['slot_timeout'] = slottimeout = int(bv[2:5])
+    r['state_syncstate'] = int(bv[:2])
+    r['state_slottimeout'] = slottimeout = int(bv[2:5])
     submessage = bv[-14:]
 
     if slottimeout in (3,5,7):
@@ -49,7 +49,7 @@ def sotdma_parse_bits(bv):
         r['commstate_utc_min'] = int(submessage[5:12])
         r['commstate_utc_spare'] = int(submessage[-2:])
     elif slottimeout == 0:
-        r['slot_offset'] = int(submessage)
+        r['state_slotoffset'] = int(submessage)
     else:
         assert False
 
