@@ -532,42 +532,42 @@ if __name__=='__main__':
                       ,help=' [default: %default]')
 
 
-    aisutils.daemon.stdCmdlineOptions(parser, skip_short=True)
+   aisutils.daemon.stdCmdlineOptions(parser, skip_short=True)
 
-    aisutils.database.stdCmdlineOptions(parser, 'postgres')
+   aisutils.database.stdCmdlineOptions(parser, 'postgres')
 
-    parser.add_option('-v','--verbose',dest='verbose',default=False,action='store_true'
+   parser.add_option('-v','--verbose',dest='verbose',default=False,action='store_true'
                       ,help='Make the test output verbose')
 
-    default_log = sys.argv[0].split('/')[-1]+'.log'
+   default_log = sys.argv[0].split('/')[-1]+'.log'
 
-    parser.add_option('-l', '--log-file', dest='log_file', type='string', default=default_log,
+   parser.add_option('-l', '--log-file', dest='log_file', type='string', default=default_log,
                       help='Tracing and logging file for status [default: %default]')
 
-    parser.add_option('-L','--log-level',dest='log_level',type='int', default='0'
+   parser.add_option('-L','--log-level',dest='log_level',type='int', default='0'
                       ,help='Log level for tracing.  Defaults to all [default: %default]')
 
-    (options,args) = parser.parse_args()
-    v = options.verbose
-    if v:
-        sys.stderr.write('starting logging to %s at %d\n' % 
-                         (options.log_file, options.log_level) )
+   (options,args) = parser.parse_args()
+   v = options.verbose
+   if v:
+       sys.stderr.write('starting logging to %s at %d\n' % 
+                        (options.log_file, options.log_level) )
 
-    sys.stderr.write('Bounding box: X: %s to %s \t\t Y: %s to %s\n' % (options.lon_min,options.lon_max,options.lat_min,options.lat_max))
+   sys.stderr.write('Bounding box: X: %s to %s \t\t Y: %s to %s\n' % (options.lon_min,options.lon_max,options.lat_min,options.lat_max))
 
-    if options.inHostname:
+   if options.inHostname:
 	options.inHost=socket.gethostname()
 
-    if options.daemon_mode:
-        aisutils.daemon.start(options.pid_file)
+   if options.daemon_mode:
+       aisutils.daemon.start(options.pid_file)
 
-    logging.basicConfig(filename = options.log_file
+   logging.basicConfig(filename = options.log_file
                         , level  = options.log_level
                         )
 
-    n2p = Nais2Postgis(options)
-    loop_count=0
-    while True:
+   n2p = Nais2Postgis(options)
+   loop_count=0
+   while True:
         loop_count += 1
         if 0 == loop_count % 1000:
             print 'top level loop',loop_count
